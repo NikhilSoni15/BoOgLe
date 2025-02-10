@@ -1,0 +1,46 @@
+- To start with, Crawler takes 10 seed pages from the search results of a query from google search engine.
+
+- Pushes them into a queue and travels the queue.
+
+- Checks if it is allowed via the robot exclusion protocol.
+
+- All the links from that existing page that was being traversed are pushed into a dictionary.
+
+- The dictionary contains key value pairs, where Keys are the domains and values are the list of links of that domain.
+
+- Then 200 links from that Dictionary are taken randomly at once and pushed into our main queue. This provides the uniform randomness while crawling the next links.
+
+- A max threshold is set for every Domain (Here 100). After the threshold is reached all remaining links from that dictionary are removed. 
+
+- Sampling strategy: For sampling, I have used a sampling probability of 0.1 so every page has this much chance of being sampled randomly.
+
+- While sampling the languages of pages are checked and counters are updated.
+
+- Logs for every page is generated and stored in separate tet file.
+
+- The code stops when the crawler has reached a 1000 sample values.
+
+- Language results as well as the number of pages crawled and sampled are printed when the crawler stops.
+
+- Stats: 
+Crawl 1:
+Sampled pages: 1000
+traversed pages: 12176
+English: 77.40%
+Spanish: 1.56%
+Chinese: 0.13%
+Dutch: 0.53%
+Other: 20.37%
+Error: 0.61%
+
+Crawl2:
+Sampled pages: 1000
+traversed pages: 12568
+English: 68.21%
+Spanish: 1.58%
+Chinese: 0.29%
+Dutch: 0.48%
+Other: 29.41%
+Error: 0.61%
+
+
